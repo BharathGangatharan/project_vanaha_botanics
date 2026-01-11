@@ -117,13 +117,13 @@ export default function ProductDetailPage() {
 
           {/* VARIANTS */}
           <div className="mt-8">
-            <p className="font-medium mb-3">Variant's Available</p>
+            <p className="font-bold mb-3 text-sage font-cormorant">Variant's Available</p>
             <div className="flex flex-wrap gap-3">
               {product.variants.map((v, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedVariantIndex(index)}
-                  className={`px-4 py-2 rounded-lg border text-sm transition text-capitalize
+                  className={`px-4 py-2 rounded-lg border text-sm transition text-capitalize text-black
                     ${
                       index === selectedVariantIndex
                         ? "border-green-700 bg-green-50 text-green-800"
@@ -152,14 +152,14 @@ export default function ProductDetailPage() {
 
         {product.description && (
           <section>
-            <h3 className="text-xl font-semibold mb-4">Description</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">Description</h3>
             <p className="text-gray-700 leading-relaxed">{product.description}</p>
           </section>
         )}
 
         {product.ingredients?.length > 0 && (
           <section>
-            <h3 className="text-xl font-semibold mb-4">Ingredients</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">Ingredients</h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
               {product.ingredients.map((i, idx) => (
                 <li key={idx}>{i}</li>
@@ -170,7 +170,7 @@ export default function ProductDetailPage() {
 
         {product.benefits?.length > 0 && (
           <section>
-            <h3 className="text-xl font-semibold mb-4">Benefits</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">Benefits</h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
               {product.benefits.map((b, idx) => (
                 <li key={idx}>{b}</li>
@@ -181,7 +181,7 @@ export default function ProductDetailPage() {
 
         {product.howToUse && (
           <section>
-            <h3 className="text-xl font-semibold mb-4">How to Use</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">How to Use</h3>
             <p className="text-gray-700 leading-relaxed">{product.howToUse}</p>
           </section>
         )}

@@ -121,6 +121,8 @@ const AllProducts = () => {
               text-sm
               focus:outline-none
               focus:ring-2 focus:ring-sage
+              placeholder:text-sage
+              font-inter
             "
           />
         </div>
