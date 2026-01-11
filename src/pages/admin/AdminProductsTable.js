@@ -15,9 +15,14 @@ export default function AdminProductsTable({
   const [currentPage, setCurrentPage] = useState(1);
   const isMobile = useMobileView();
 
-  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  const safeProducts = Array.isArray(filteredProducts)
+    ? filteredProducts
+    : [];
+
+  const totalPages = Math.ceil(safeProducts.length / ITEMS_PER_PAGE);
+
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const paginatedProducts = filteredProducts.slice(
+  const paginatedProducts = safeProducts.slice(
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
@@ -31,7 +36,7 @@ export default function AdminProductsTable({
   }
 
   function getPriceRange(variants = []) {
-    if (!variants.length) return "—";
+     if (!Array.isArray(variants) || variants.length === 0) return "—";
     const prices = variants.map(getFinalPrice);
     const min = Math.min(...prices);
     const max = Math.max(...prices);
@@ -42,14 +47,14 @@ export default function AdminProductsTable({
 
   if (isMobile) {
     return (
-      <div className="px-4 mt-40 space-y-4">
+      <div className="px-4 mt-10 space-y-4">
         {paginatedProducts.length === 0 && (
           <p className="text-center text-gray-500 py-10">
             No products found.
           </p>
         )}
 
-        {paginatedProducts.map((product) => (
+        {paginatedProducts?.map((product) => (
           <div
             key={product._id}
             className="bg-white border rounded-xl p-4 shadow-sm"
@@ -58,7 +63,7 @@ export default function AdminProductsTable({
               {/* Image */}
               <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
                 <img
-                  src={product?.images?.[0]?.url}
+                  src={product?.images?.[0]?.url || ""}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
@@ -132,7 +137,7 @@ export default function AdminProductsTable({
   /* ---------------- DESKTOP TABLE VIEW ---------------- */
 
   return (
-    <div className="pt-24 px-10 mb-10 mt-10">
+    <div className="px-10 mb-10 mt-10">
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
         {/* Header */}
         <div className="grid grid-cols-12 gap-4 px-6 py-4 bg-gray-50 border-b text-sm font-semibold text-gray-700">
@@ -157,7 +162,7 @@ export default function AdminProductsTable({
             <div className="col-span-2">
               <div className="w-14 h-14 rounded-lg overflow-hidden bg-gray-100">
                 <img
-                  src={product?.images?.[0].url}
+                  src={product?.images?.[0].url || ""}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
