@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+
+/* 🎨 Custom theme colors */
+@theme {
+  --color-lavender: #A6B2EC;
+  --color-navyDark: #080C25;
+  --color-blueDeep: #161E35;
+  --color-blueBright: #3071E7;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-allProductsBg: #d6d9eb;
+  --color-reviewCarouselBg: #20274b;
+  --color-serviceProvideBg: #4d4f69;
+  --color-runningBannerBg: #d8c8c0;
+  --color-navBarHoverText: #ebb9a1;
+
+  --color-brand: #2F5D50;
+  --color-sage: #9DBFB3;
+  --color-bg: #FAFAF7;
+  --color-section: #F1F5F2;
+  --color-text: #1F2933;
+  --color-muted: #6B7280;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-playfair: "Playfair Display", serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+/* 🌞 Light mode defaults */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-playfair: "Playfair Display", serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+/* 🌚 Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+h1, h2, h3 {
+  font-weight: 700; /* Bold for headings */
+};
+
+p, a {
+  font-weight: 400; /* Light for paragraphs */
+};
+
+
+strong {
+  font-weight: 500; /* Medium for strong text */
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+
+/* 👕 Base body styles */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* font-family: var(--font-open-sans); */
+}
+
+
+@keyframes scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-float {
+  animation: float 1.5s ease-in-out infinite;
+}
+
+.animate-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll 25s linear infinite;
+}
+
+
+.bg-animated-gradient {
+  background: linear-gradient(-45deg, #A6B2EC, #fff, #b4bef0);
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee__inner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 15s linear infinite;
+}
+
+/* Text spacing style */
+.marquee__inner span {
+  display: inline-block;
+  padding-right: 250px; /* space between repeats */
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+
+@media (max-width: 765px) {
+  .bannerText {
+    font-size: 0.85rem;           /* reduce size */
+    padding-right: 6rem;          /* increase spacing */
+  }
+
+  .marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+.marquee__inner {
+  display: inline-flex;
+  align-items: center;
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+/* Text spacing style */
+.marquee__inner span {
+  display: inline-block;
+  padding-right: 4rem;
+  font-weight: 600;
+  font-size: 1rem;                /* default */
+
+  /* FIX MOBILE SPACING + ALIGNMENT */
+  white-space: nowrap;
+}
+
+}
