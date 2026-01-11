@@ -42,7 +42,7 @@ export default function ProductDetailPage() {
     : [{ url: product.imageUrl }]; // fallback
 
   return (
-    <div className="bg-[#F7F9F6] min-h-screen mt-20">
+    <div className="bg-[#F7F9F6] min-h-screen">
       <Head>
         <title>{product.name} | Vanaha Botanics</title>
         <meta name="description" content={product.shortDescription} />
