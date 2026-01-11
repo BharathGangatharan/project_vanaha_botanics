@@ -30,7 +30,7 @@ const ProductCard = ({ filteredProducts }) => {
   }
 
   return (
-    <div className="w-[400px] gap-2 max-h-[600px]">
+    <div className="w-full sm:max-w-[320px] mx-auto gap-2 max-h-[600px]">
 
       {filteredProducts.map((product) => {
         const lowestVariant = getLowestPricedVariant(product.variants);
@@ -116,7 +116,7 @@ const ProductCard = ({ filteredProducts }) => {
               <span
                 className="
                   mt-4 inline-block
-                  text-sm text-[#2F5D50]
+                  text-[16px] md:text-sm text-[#2F5D50]
                   underline-offset-4
                   group-hover:underline
                 "

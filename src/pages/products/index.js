@@ -71,7 +71,7 @@ const AllProducts = () => {
       <div className="max-w-[1000px] mx-auto px-6">
 
         {/* ---------- Title ---------- */}
-        <h2 className="text-center text-3xl md:text-5xl font-cormorant text-brand">
+        <h2 className="text-center text-[30px] md:text-5xl font-cormorant text-brand">
           Our Products
         </h2>
         <p className="text-center text-muted mt-2 mb-12">
@@ -87,7 +87,7 @@ const AllProducts = () => {
                 setActiveTab(tab.key);
                 setSearch("");
               }}
-              className={`pb-2 text-sm md:text-base font-medium transition
+              className={`pb-2 text-[16px] md:text-base font-medium transition
                 ${
                   activeTab === tab.key
                     ? "text-brand border-b-2 border-brand"

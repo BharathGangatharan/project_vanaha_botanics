@@ -38,7 +38,7 @@ export default function Navbar() {
           onClick={toggleMenu}
           className="text-[20px] hover:text-lavender"
         >
-          {menuOpen ? <IoClose size={30} /> : <GiHamburgerMenu size={25} />}
+          {menuOpen ? <IoClose size={30} /> : <GiHamburgerMenu size={25} className="fill-brand" />}
         </button>
       ) : (
         <div className="space-x-10 flex items-center gap-4 mr-4">

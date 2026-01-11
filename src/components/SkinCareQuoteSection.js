@@ -1,8 +1,13 @@
 import Image from "next/image";
 import skincareImg from "../../public/images/vana_bg/facial_mask.jpg";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
 
 export default function SkinCareQuoteSection() {
+
+  const router = useRouter();
+
   return (
     <section className="bg-section py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -30,6 +35,7 @@ export default function SkinCareQuoteSection() {
           </p>
 
             <motion.button
+            onClick={() => router.push('/products')}
             className="
                 bg-brand text-white text-lg font-inter md:text-[18px]
                 px-8 py-4 mt-8 rounded-full cursor-pointer
