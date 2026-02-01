@@ -78,7 +78,7 @@ export default function Footer() {
           {/* SOCIAL ICONS */}
           <div className="flex items-center justify-center md:justify-end gap-4">
             <a
-              href="#"
+              href="https://www.instagram.com/vanaha_botanics?igsh=ZXNrZ2NoYm5icWlk"
               className="
             w-10 h-10
             rounded-xl
@@ -89,12 +89,14 @@ export default function Footer() {
             hover:text-[#2F5D50]
             transition
           "
+          target="_blank"
             >
               <FaInstagram size={18} />
             </a>
 
             <a
               href="#"
+              target="_blank"
               className="
             w-10 h-10
             rounded-xl

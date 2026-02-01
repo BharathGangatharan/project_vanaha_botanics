@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export default function ProductDetailPage() {
   const router = useRouter();
@@ -47,6 +48,8 @@ export default function ProductDetailPage() {
         <title>{product.name} | Vanaha Botanics</title>
         <meta name="description" content={product.shortDescription} />
       </Head>
+
+      <Breadcrumb product={product} />
 
       <div className="max-w-6xl mx-auto px-4 py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* ---------------- IMAGE GALLERY ---------------- */}
@@ -116,25 +119,29 @@ export default function ProductDetailPage() {
           </div>
 
           {/* VARIANTS */}
-          <div className="mt-8">
-            <p className="font-bold mb-3 text-sage font-cormorant">Variant's Available</p>
-            <div className="flex flex-wrap gap-3">
-              {product.variants.map((v, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedVariantIndex(index)}
-                  className={`px-4 py-2 rounded-lg border text-sm transition text-capitalize text-black
-                    ${
-                      index === selectedVariantIndex
-                        ? "border-green-700 bg-green-50 text-green-800"
-                        : "border-gray-300 hover:border-green-400"
-                    }`}
-                >
-                  {v.size} {v.color ? "•" : ""} {v.color}
-                </button>
-              ))}
+          {product.variants.length > 1 && (
+            <div className="mt-8">
+              <p className="font-bold mb-3 text-sage font-cormorant">
+                Variant's Available
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {product.variants.map((v, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedVariantIndex(index)}
+                    className={`px-4 py-2 rounded-lg border text-sm transition text-capitalize text-black
+                      ${
+                        index === selectedVariantIndex
+                          ? "border-green-700 bg-green-50 text-green-800"
+                          : "border-gray-300 hover:border-green-400"
+                      }`}
+                  >
+                    {v.size} {v.color ? "•" : ""} {v.color}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* CTA */}
           <a
@@ -149,17 +156,33 @@ export default function ProductDetailPage() {
 
       {/* ---------------- DETAILS SECTION ---------------- */}
       <div className="max-w-5xl mx-auto px-4 pb-24 space-y-14">
-
         {product.description && (
           <section>
-            <h3 className="text-xl font-semibold mb-4 text-gray-900">Description</h3>
-            <p className="text-gray-700 leading-relaxed">{product.description}</p>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">
+              Description
+            </h3>
+
+            {product.description?.includes("•") ? (
+              <ul className="space-y-2 text-gray-700 leading-relaxed list-disc pl-5">
+                {product.description.split("•").map((line, index) => {
+                  const text = line.trim();
+                  if (!text) return null;
+                  return <li key={index}>{text}</li>;
+                })}
+              </ul>
+            ) : (
+              <p className="text-gray-700 leading-relaxed">
+                {product.description}
+              </p>
+            )}
           </section>
         )}
 
         {product.ingredients?.length > 0 && (
           <section>
-            <h3 className="text-xl font-semibold mb-4 text-gray-900">Ingredients</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">
+              Ingredients
+            </h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
               {product.ingredients.map((i, idx) => (
                 <li key={idx}>{i}</li>
@@ -170,7 +193,9 @@ export default function ProductDetailPage() {
 
         {product.benefits?.length > 0 && (
           <section>
-            <h3 className="text-xl font-semibold mb-4 text-gray-900">Benefits</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">
+              Benefits
+            </h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
               {product.benefits.map((b, idx) => (
                 <li key={idx}>{b}</li>
@@ -181,8 +206,23 @@ export default function ProductDetailPage() {
 
         {product.howToUse && (
           <section>
-            <h3 className="text-xl font-semibold mb-4 text-gray-900">How to Use</h3>
-            <p className="text-gray-700 leading-relaxed">{product.howToUse}</p>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">
+              How to Use
+            </h3>
+
+            {product.howToUse?.includes("•") ? (
+              <ul className="space-y-2 text-gray-700 leading-relaxed list-disc pl-5">
+                {product.howToUse.split("•").map((line, index) => {
+                  const text = line.trim();
+                  if (!text) return null;
+                  return <li key={index}>{text}</li>;
+                })}
+              </ul>
+            ) : (
+              <p className="text-gray-700 leading-relaxed">
+                {product.howToUse}
+              </p>
+            )}
           </section>
         )}
       </div>

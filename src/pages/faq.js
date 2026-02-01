@@ -7,24 +7,34 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "How long does henna last on the skin?",
+      question: "Are your products made with natural ingredients?",
       answer:
-        "Henna typically lasts between 7–14 days depending on skin type and aftercare. Keeping the area dry for the first 24 hours helps extend the stain.",
+        "Yes. All our products are crafted using natural, plant-based ingredients and are free from harsh chemicals, artificial colors, and synthetic fragrances.",
     },
     {
-      question: "Is your henna safe for all skin types?",
+      question: "Are your products safe for all skin and hair types?",
       answer:
-        "Yes! Our henna products are natural and skin-friendly. They do not contain harmful chemicals or artificial dyes.",
+        "Our products are gentle and suitable for most skin and hair types. However, we recommend doing a patch test before regular use, especially for sensitive skin.",
     },
     {
-      question: "Do you provide shipping across India?",
+      question: "Are your eco-friendly products biodegradable?",
       answer:
-        "Yes, we offer fast and reliable shipping throughout India. Delivery time usually ranges from 3–7 working days.",
+        "Yes. Our eco-friendly range is made from sustainable, biodegradable materials that are safe for both you and the environment.",
     },
     {
-      question: "How should I take care of the henna design?",
+      question: "How long does it take to see results from natural products?",
       answer:
-        "Avoid washing the area for at least 8 hours. Apply coconut oil or sugar–lemon mix for a darker stain.",
+        "Natural products work gradually. With regular use, you may start noticing visible improvements within 2–4 weeks, depending on the product and usage.",
+    },
+    {
+      question: "Do you deliver products across India?",
+      answer:
+        "Yes, we provide reliable shipping across India. Orders are usually delivered within 3–7 working days based on your location.",
+    },
+    {
+      question: "How should I store the products?",
+      answer:
+        "Store products in a cool, dry place away from direct sunlight to maintain their freshness and effectiveness.",
     },
   ];
 
