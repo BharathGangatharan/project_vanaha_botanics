@@ -95,7 +95,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="#"
+              href="https://www.facebook.com/Ritusdreamsdesigns?rdid=NL8GfDlyv02TeXly&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1FakFSbJnN%2F#"
               target="_blank"
               className="
             w-10 h-10

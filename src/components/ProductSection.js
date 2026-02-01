@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import HairCareBg from "../../public/images/vana_bg/skincare_bg.jpg";
 import SkincareBg from "../../public/images/vana_bg/haircare_bg_2.jpg";
-import EcoFriendlyBg from "../../public/images/vana_bg/ecofriendly_bg.jpg";
+import EcoFriendlyBg from "../../public/images/vana_bg/ecofriendly_bg.jpeg";
 
 const containerVariants = {
   hidden: { opacity: 1 },
